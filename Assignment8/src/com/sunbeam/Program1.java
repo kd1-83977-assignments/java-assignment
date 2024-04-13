@@ -8,20 +8,18 @@ public class Program1  {
 	public static <T>void selectionSort (T[] arr,Comparator<? super T> comp)  {
 		
 		int minIndex;
-		for(int i=0; i<arr.length-1; i++) {
-			minIndex=i;
-		for(int j=i+1; j<arr.length; j++) {
-		    
-		    int index= (comp.compare(arr[j], arr[i]));
-		    if (index>0){
-                minIndex = j;
-            }
-        if (minIndex != i) {
-            T temp = arr[i];
-            arr[i] = arr[minIndex];
-            arr[minIndex] = temp;
-        }
-		}
+		 for (int i = 0; i < arr.length - 1; i++) {
+	            minIndex = i;
+	            for (int j = i + 1; j < arr.length; j++) {
+	                if (comp.compare(arr[j], arr[minIndex]) < 0) {
+	                    minIndex = j;
+	                }
+	            }
+	            if (minIndex != i) {
+	                T temp = arr[i];
+	                arr[i] = arr[minIndex];
+	                arr[minIndex] = temp;
+	            }
 	}}
 	
 
